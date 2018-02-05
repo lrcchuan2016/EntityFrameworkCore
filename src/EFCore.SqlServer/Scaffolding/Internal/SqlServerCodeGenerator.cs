@@ -26,6 +26,6 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         public override MethodCallCodeFragment GenerateUseProvider(string connectionString)
-            => new MethodCallCodeFragment(nameof(SqlServerDbContextOptionsExtensions.UseSqlServer), connectionString);
+            => new MethodCallCodeFragment(nameof(SqlServerDbContextOptionsBuilderExtensions.UseSqlServer), connectionString);
     }
 }

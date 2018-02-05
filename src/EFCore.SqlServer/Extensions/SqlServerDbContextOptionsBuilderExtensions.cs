@@ -15,7 +15,7 @@ namespace Microsoft.EntityFrameworkCore
     /// <summary>
     ///     SQL Server specific extension methods for <see cref="DbContextOptionsBuilder" />.
     /// </summary>
-    public static class SqlServerDbContextOptionsExtensions
+    public static class SqlServerDbContextOptionsBuilderExtensions
     {
         /// <summary>
         ///     Configures the context to connect to a Microsoft SQL Server database.
