@@ -634,7 +634,16 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionVisitors.Internal
             }
 
             var newObject = Visit(node.Object);
-            var newArguments = node.Arguments.Select(Visit);
+            var newArguments = node.Arguments.Select(Visit).ToList();
+
+            for (var i = 0; i < newArguments.Count; i++)
+            {
+                if (newArguments[i].Type != node.Arguments[i].Type
+                    && newArguments[i] is NullConditionalExpression nullConditionalArgument)
+                {
+                    newArguments[i] = nullConditionalArgument.AccessOperation;
+                }
+            }
 
             if (newObject != node.Object)
             {
